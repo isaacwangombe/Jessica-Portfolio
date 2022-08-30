@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "JessPortfolioFrontend"
+    }
+  },
+  "defaultProject": "JessPortfolioFrontend",
+  "cli": {
+    "analytics": "74e8cb77-1c33-4a70-b20d-fcc474ea7d75"
+  }
 }

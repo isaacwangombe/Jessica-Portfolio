@@ -1,0 +1,19 @@
+.about-container {
+  margin: 10vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  height: 70vh;
+  gap: 20vw;
+  place-items: center;
+  height: 100%;
+}
+
+.about-image {
+  background-image: url("src/assets/about.jpg");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  width: 100%;
+}
