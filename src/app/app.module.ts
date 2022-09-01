@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 
@@ -11,6 +13,8 @@ import { AboutComponent } from './about/about.component';
 import { LandingComponent } from './landing/landing.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { NavComponent } from './nav/nav.component';
+import { HighlightedComponent } from './highlighted/highlighted.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,8 @@ import { NavComponent } from './nav/nav.component';
     LandingComponent,
     TimelineComponent,
     NavComponent,
+    HighlightedComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +34,7 @@ import { NavComponent } from './nav/nav.component';
     ReactiveFormsModule,
     NgxHideOnScrollModule,
     MdbCollapseModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
