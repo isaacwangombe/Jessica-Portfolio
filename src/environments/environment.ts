@@ -8,7 +8,13 @@ export const environment = {
   allTools: 'https://jessicanjugunaportfolio.herokuapp.com/api/all_tools',
   allModels: 'https://jessicanjugunaportfolio.herokuapp.com/api/all_models',
   allComments: 'https://jessicanjugunaportfolio.herokuapp.com/api/all_comments',
-  projectsById: 'https://jessicanjugunaportfolio.herokuapp.com/api/id_projects',
+  projectsById:
+    'https://jessicanjugunaportfolio.herokuapp.com/api/id_projects/',
+  projectsByModels:
+    'https://jessicanjugunaportfolio.herokuapp.com/api/model_projects/',
+  projectsByTools:
+    'https://jessicanjugunaportfolio.herokuapp.com/api/tool_projects/',
+  cloudinary: 'https://res.cloudinary.com/dtj7bnapz/',
 };
 
 /*

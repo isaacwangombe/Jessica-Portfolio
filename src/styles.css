@@ -1,1 +1,106 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* text */
+p,
+li,
+a,
+ul {
+  font-family: "Lato", sans-serif;
+  font-size: min(1.5rem, 3vw);
+  line-height: 1.5;
+  text-decoration: none;
+}
+h1 {
+  font-size: min(5rem, 8vw);
+  font-family: "Playfair Display", serif;
+}
+/* h2 {}
+h3 {}
+h4 {} */
+
+h2 {
+  font-size: min(2rem, 5vw);
+  font-family: "Playfair Display", serif;
+}
+
+h3 {
+  font-family: "Lato", sans-serif;
+  font-size: min(1rem, 2vw);
+}
+h6 {
+  font-size: 1.5vw;
+  font-family: "Playfair Display", serif;
+}
+
+/* Button styles*/
+.bn54 {
+  margin: 5px;
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px;
+  opacity: 1;
+  background-color: #ffffff;
+  border: 1px solid rgba(22, 22, 22, 0.572);
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.bn54 .bn54span {
+  font-family: "Playfair Display", serif;
+  color: #000000;
+  font-size: min(1.5rem, 4vw);
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+.bn54:hover {
+  animation: bn54rotate 0.7s ease-in-out both;
+}
+
+.bn54:hover .bn54span {
+  animation: bn54storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+}
+
+@keyframes bn54rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bn54storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}

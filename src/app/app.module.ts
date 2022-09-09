@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+// import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +36,9 @@ import { ProjectsComponent } from './projects/projects.component';
     ReactiveFormsModule,
     NgxHideOnScrollModule,
     MdbCollapseModule,
+    // MdbDropdownModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

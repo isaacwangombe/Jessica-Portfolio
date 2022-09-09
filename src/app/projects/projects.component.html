@@ -1,13 +1,283 @@
-work
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <app-about></app-about> -->
+  <h1>Portfolio</h1>
+
+  <div id="projects" class="menu-cont">
+
+    <h2 class="menu-header">Sort By:</h2>
+    <div class="menu">
+      <div class="menu-item">
+        <button class="bn54" (click)=toggleAll() (click)="toggleAllList()">
+          <span class="bn54span">All</span>
+        </button>
+      </div>
+      <div class="menu-item">
+        <button class="bn54" (click)=toggleToolList()>
+          <span class="bn54span">Language</span>
+        </button>
+        <div *ngFor="let tool of tools">
+          <div *ngIf="showToolList" class="input-container">
+            <input name="{{tool.name}}" type="radio" class="tool" value="{{tool.id}}" [(ngModel)]="selectedTool"
+              (change)="projectsByTools()" (change)="toggleTool()" class="btn-check " id="{{tool.name}}">
+
+            <label class="bn54" for="{{tool.name}}">{{tool.name}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <button class="bn54" (click)="toggleModelList()">
+          <span class="bn54span">Framework</span>
+        </button>
+        <div *ngIf="showModelList" class="input-container">
+
+          <div *ngFor="let model of models">
+            <input name="{{model.name}}" type="radio" class="model" value="{{model.id}}" [(ngModel)]="selectedModel"
+              (change)="projectsByModels()" (change)="toggleModel()" class="btn-check " id="{{model.name}}">
+            <label class="bn54" for="{{model.name}}">{{model.name}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
-</div>
+
+
+  <div class="all-projects">
+    <div class="project-container" *ngIf="AllShow">
+      <div class="" *ngFor="let item of project">
+        <div class="box" (click)="open(mymodal)">
+          <img src="{{cloud}}{{item.image}}">
+          <div class="box-content">
+            <span class="post">{{item.details}}</span>
+          </div>
+          <ul class="icon">
+            <li><a href="#"><i class="fa fa-search"></i></a></li>
+            <li><a href="#"><i class="fa fa-github"></i></a></li>
+          </ul>
+        </div>
+        <!-- Modal -->
+
+        <div class="project-name">
+          <h2>{{item.name}}</h2>
+
+
+
+        </div>
+
+        <ng-template #mymodal let-modal>
+          <div class=" modal-content">
+            <div class="modal-title-container">
+
+              <h2 class="modal-title m-piece">{{item.name}}</h2>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button>
+            </div>
+            <div class="modal-cont-img">
+              <div class="modal-image m-piece">
+                <img class="modal-img project-img" src="{{cloud}}{{item.image}}">
+              </div>
+              <div class="modal-details m-piece">
+                <h2>Description</h2>
+                <h3>{{item.details}}</h3>
+                <ul class="icon">
+                  <li><a href="#"><i class="fa fa-search"></i></a></li>
+                  <li><a href="#"><i class="fa fa-github"></i></a></li>
+                </ul>
+              </div>
+
+            </div>
+            <div class="modal-tool m-piece">
+              <h2>Built with:</h2>
+              <div class="modal-tools">
+                <div class="block">
+                  <p class="block-title"><strong> Model</strong></p>
+                  <div class="" *ngFor="let model of item.models">
+                    <p>{{model.name}}</p>
+                  </div>
+                </div>
+
+
+                <div class="block">
+                  <p class="block-title"><strong> Other Tools</strong></p>
+                  <div class="block-items" *ngFor="let tools of item.tools">
+                    <p>{{tools.name}}</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="project-container" *ngIf="toolShow">
+      <div class="" *ngFor="let item of byTool">
+        <div class="box" (click)="open(mymodal)">
+          <img src="{{cloud}}{{item.image}}">
+          <div class="box-content">
+            <span class="post">{{item.details}}</span>
+          </div>
+          <ul class="icon">
+            <li><a href="#"><i class="fa fa-search"></i></a></li>
+            <li><a href="#"><i class="fa fa-github"></i></a></li>
+          </ul>
+        </div>
+        <!-- Modal -->
+
+
+        <ng-template #mymodal let-modal>
+          <div class=" modal-content">
+            <div class="modal-title-container">
+
+              <h2 class="modal-title m-piece">{{item.name}}</h2>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button>
+            </div>
+            <div class="modal-cont-img">
+              <div class="modal-image m-piece">
+                <img class="modal-img project-img" src="{{cloud}}{{item.image}}">
+              </div>
+              <div class="modal-details m-piece">
+                <h2>Description</h2>
+                <p>{{item.details}}</p>
+                <ul class="icon">
+                  <li class="icons facebook">
+                    <span class="tooltip">Live Site</span>
+                    <a target="blank" href="{{item.link}}"><span><img src="assets/images/link.png"
+                          class="fab fa-facebook-f"></span></a>
+                  </li>
+                  <li class="icons github">
+                    <span class="tooltip">Github</span>
+                    <a target="blank" href="{{item.github}}"> <span><img src="assets/images/github.png"
+                          class="fab fa-github"></span></a>
+                  </li>
+                  <li class="icons twitter">
+                    <span class="tooltip">Rate Project</span>
+                    <a (click)="modal.dismiss('Cross click')" routerLink="/rate/{{item.id}}">
+                      <span><img src="assets/images/star2.png" class="fab fa-twitter"></span></a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+            <div class="modal-tool m-piece">
+              <h2>Built with:</h2>
+              <div class="modal-tools">
+                <div class="block">
+                  <p class="block-title"><strong> Model</strong></p>
+                  <div class="" *ngFor="let model of item.models">
+                    <p>{{model.name}}</p>
+                  </div>
+                </div>
+
+
+                <div class="block">
+                  <p class="block-title"><strong> Other Tools</strong></p>
+                  <div class="block-items" *ngFor="let tools of item.tools">
+                    <p>{{tools.name}}</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <h2 class="title">{{item.name}}</h2>
+
+      </div>
+    </div>
+    <div class="project-container" *ngIf="modelShow">
+      <div class="" *ngFor="let item of byModel">
+        <div class="box" (click)="open(mymodal)">
+          <img src="{{cloud}}{{item.image}}">
+          <div class="box-content">
+            <span class="post">{{item.details}}</span>
+          </div>
+          <ul class="icon">
+            <li><a href="#"><i class="fa fa-search"></i></a></li>
+            <li><a href="#"><i class="fa fa-github"></i></a></li>
+          </ul>
+        </div>
+        <!-- Modal -->
+
+        <div class="project-name">
+          <h2>{{item.name}}</h2>
+
+
+
+        </div>
+
+        <ng-template #mymodal let-modal>
+          <div class=" modal-content">
+            <div class="modal-title-container">
+
+              <h2 class="modal-title m-piece">{{item.name}}</h2>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">x</button>
+            </div>
+            <div class="modal-cont-img">
+              <div class="modal-image m-piece">
+                <img class="modal-img project-img" src="{{cloud}}{{item.image}}">
+              </div>
+              <div class="modal-details m-piece">
+                <h2>Description</h2>
+                <p>{{item.details}}</p>
+                <ul class="icon">
+                  <li class="icons facebook">
+                    <span class="tooltip">Live Site</span>
+                    <a target="blank" href="{{item.link}}"><span><img src="assets/images/link.png"
+                          class="fab fa-facebook-f"></span></a>
+                  </li>
+                  <li class="icons github">
+                    <span class="tooltip">Github</span>
+                    <a target="blank" href="{{item.github}}"> <span><img src="assets/images/github.png"
+                          class="fab fa-github"></span></a>
+                  </li>
+                  <li class="icons twitter">
+                    <span class="tooltip">Rate Project</span>
+                    <a (click)="modal.dismiss('Cross click')" routerLink="/rate/{{item.id}}">
+                      <span><img src="assets/images/star2.png" class="fab fa-twitter"></span></a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+            <div class="modal-tool m-piece">
+              <h2>Built with:</h2>
+              <div class="modal-tools">
+                <div class="block">
+                  <p class="block-title"><strong> Model</strong></p>
+                  <div class="" *ngFor="let model of item.models">
+                    <p>{{model.name}}</p>
+                  </div>
+                </div>
+
+
+                <div class="block">
+                  <p class="block-title"><strong> Other Tools</strong></p>
+                  <div class="block-items" *ngFor="let tools of item.tools">
+                    <p>{{tools.name}}</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <!------------------ Hover Effect Style : Demo - 7 --------------->
+</body>
+
+</html>

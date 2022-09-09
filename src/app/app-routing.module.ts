@@ -6,10 +6,10 @@ import { HighlightedComponent } from './highlighted/highlighted.component';
 import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
-  // { path: '', component: LandingComponent },
-  // { path: '', component: AboutComponent },
+  { path: '', component: LandingComponent },
+  { path: 'about', component: AboutComponent },
   // { path: '', component: HighlightedComponent },
-  { path: '', component: ProjectsComponent },
+  { path: 'projects', component: ProjectsComponent },
 ];
 
 @NgModule({

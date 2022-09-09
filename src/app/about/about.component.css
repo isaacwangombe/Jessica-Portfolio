@@ -1,4 +1,7 @@
-body {
+@media screen and (max-width: 991px) {
+  body {
+    margin-top: 100px;
+  }
 }
 
 .about-container {
@@ -6,7 +9,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   height: 70vh;
-  gap: 20vw;
+  gap: 10vw;
   place-items: center;
   height: 100%;
 }
@@ -19,4 +22,8 @@ body {
   background-size: cover;
   height: 50vh;
   width: 100%;
+}
+
+.about-text {
+  text-align: justify;
 }

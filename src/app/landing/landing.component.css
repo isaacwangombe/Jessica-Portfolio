@@ -6,8 +6,16 @@
   color: black;
 }
 
+body {
+  margin-bottom: 100px;
+}
+
 h3 {
   font-size: 14px;
+}
+
+.landing {
+  margin-bottom: 50px;
 }
 .landing-content {
   background-image: url("/assets/landing2.jpg");
@@ -52,18 +60,23 @@ h3 {
   place-content: center;
 }
 
+.about-title {
+  color: orange;
+}
+
 .container-interest {
   margin: 10vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 3fr));
   gap: 10vw;
+  max-width: 90vw;
 }
 
 .images-interest-container {
   display: grid;
   place-content: center;
   gap: 3vw;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
 }
 
 .interest-img {
@@ -77,7 +90,7 @@ h3 {
   padding: 20px;
 }
 .links {
-  height: 50vh;
+  height: 100%;
   display: grid;
   place-items: center;
 }
